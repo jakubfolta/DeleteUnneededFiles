@@ -8,7 +8,7 @@ import os
 import send2trash
 
 # Set the directory to check.
-dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample folder to check'
+dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_folder_to_check'
 
 # Write function to print absolute path to files (100 MB and more file size).
 def search_print_big_files(x):
@@ -16,8 +16,9 @@ def search_print_big_files(x):
         print('Direction greater than 100 MB: {}'.format(abs_path))
 
 # TODO: Walk selected directory with os.walk()
-for folder, subfolder, file in os.walk(dir_to_check):
-        
-
-
+for folder, subfolders, files in os.walk(dir_to_check):
+    abs_path = folder
+    print(folder)
+    for file in files:
+        print(file)
 # TODO: Change project status on github.
