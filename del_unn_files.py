@@ -1,7 +1,7 @@
 #! python3
 
-# del_unn_files.py - A program that walks through a folder tree and searches for exceptionally large files or folders.
-# Print these files with their absolute path to the screen.
+'''del_unn_files.py - A program that walks through a folder tree and searches for exceptionally large files or folders.
+Print these files with their absolute path to the screen.'''
 
 # Import essential modules.
 import os
@@ -13,17 +13,15 @@ dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_f
 # Walk selected directory with os.walk()
 for folder, subfolders, files in os.walk(dir_to_check):
     files_total_size = 0
-    #print(abs_path)
-    #print(abs_path)
     for file in files:
         file_abs_path = os.path.join(folder, file)
         file_size = os.path.getsize(file_abs_path)
         if file_size >= 104857600:
             print('File bigger than 100 MB:\n{}\nFile size: {}\nDeleted.'.format(file_abs_path, file_size))
-            #send2trash.send2trash(file_abs_path)
+            #send2trash.send2trash(file_abs_path)       # Remove hashtag and run script again if you're sure that you want to remove this directory.
         files_total_size = files_total_size + os.path.getsize(file_abs_path)
     if files_total_size >= 104857600:
         print('Folder size bigger than 100 MB:\n{}\nFolder size: {}\nDeleted.'.format(folder, files_total_size))
-        #send2trash.send2trash(folder)
-        #print(abs_path)
-# TODO: Change project status on github.
+        #send2trash.send2trash(folder)      # Remove hashtag and run script again if you're sure that you want to remove this directory.
+
+# Change project status on github.
