@@ -10,7 +10,7 @@ import send2trash
 # Set the directory to check.
 dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_folder_to_check'
 
-# Walk selected directory with os.walk()
+# Walk selected directory with os.walk().
 for folder, subfolders, files in os.walk(dir_to_check):
     files_total_size = 0
     for file in files:
