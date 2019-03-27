@@ -19,8 +19,9 @@ for folder, subfolders, files in os.walk(dir_to_check):
         if file_size >= 104857600:
             print('File bigger than 100 MB:\n{}\nFile size: {}\nDeleted.'.format(file_abs_path, file_size))
             #send2trash.send2trash(file_abs_path)       # Remove hashtag and run script again if you're sure that you want to remove this directory.
+            continue
         files_total_size = files_total_size + os.path.getsize(file_abs_path)
-    if files_total_size >= 104857600:
+    if files_total_size >= 104857600 and folder != dir_to_check:
         print('Folder size bigger than 100 MB:\n{}\nFolder size: {}\nDeleted.'.format(folder, files_total_size))
         #send2trash.send2trash(folder)      # Remove hashtag and run script again if you're sure that you want to remove this directory.
 
