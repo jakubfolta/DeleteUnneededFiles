@@ -12,13 +12,18 @@ dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_f
 
 # Walk selected directory with os.walk()
 for folder, subfolders, files in os.walk(dir_to_check):
-    folder_abs_path = folder
+    files_total_size = 0
     #print(abs_path)
     #print(abs_path)
     for file in files:
-        files_total_size = 0
         file_abs_path = os.path.join(folder, file)
+        file_size = os.path.getsize(file_abs_path)
+        if file_size >= 104857600:
+            print('File bigger than 100 MB:\n{}\nDeleted.'.format(file_abs_path))
+            #send2trash.send2trash(file_abs_path)
         files_total_size = files_total_size + os.path.getsize(file_abs_path)
-        print(files_total_sizes)
+    if files_total_size >= 104857600:
+        print('Folder size bigger than 100 MB:\n{}\nDeleted.'.format(folder))
+    print(files_total_size)
         #print(abs_path)
 # TODO: Change project status on github.
