@@ -19,11 +19,11 @@ for folder, subfolders, files in os.walk(dir_to_check):
         file_abs_path = os.path.join(folder, file)
         file_size = os.path.getsize(file_abs_path)
         if file_size >= 104857600:
-            print('File bigger than 100 MB:\n{}\nSize: {}\nDeleted.'.format(file_abs_path, file_size))
+            print('File bigger than 100 MB:\n{}\nFile size: {}\nDeleted.'.format(file_abs_path, file_size))
             #send2trash.send2trash(file_abs_path)
         files_total_size = files_total_size + os.path.getsize(file_abs_path)
     if files_total_size >= 104857600:
-        print('Folder size bigger than 100 MB:\n{}\nDeleted.'.format(folder))
-    print(files_total_size)
+        print('Folder size bigger than 100 MB:\n{}\nFolder size: {}\nDeleted.'.format(folder, files_total_size))
+        #send2trash.send2trash(folder)
         #print(abs_path)
 # TODO: Change project status on github.
