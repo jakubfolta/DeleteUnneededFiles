@@ -13,12 +13,12 @@ dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_f
 # Walk selected directory with os.walk()
 for folder, subfolders, files in os.walk(dir_to_check):
     folder_abs_path = folder
-    print(abs_path)
-    search_print_big_files(abs_path)
+    #print(abs_path)
     #print(abs_path)
     for file in files:
+        files_total_size = 0
         file_abs_path = os.path.join(folder, file)
-        print(os.path.getsize(abs_path))
-        search_print_big_files(abs_path)
+        files_total_size = files_total_size + os.path.getsize(file_abs_path)
+        print(files_total_sizes)
         #print(abs_path)
 # TODO: Change project status on github.
