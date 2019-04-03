@@ -15,12 +15,13 @@ file_size_to_del = 104857600
 for folder, subfolders, files in os.walk(dir_to_check):
     total_size = 0
     subfolder_exist = 0
-    for x in os.listdir(folder):
-        if os.path.isdir(os.path.join(folder, x)):
-            subfolder_exists = 1
-            break
-    for file in files:
-        print(subfolder_exists)
+    print(''.join(subfolders) in folder)
+    # for x in os.listdir(folder):
+    #     if os.path.isdir(os.path.join(folder, x)):
+    #         subfolder_exists = 1
+    #         break
+    # for file in files:
+    #     print(subfolder_exists)
     #     file_abspath = os.path.join(folder, file)
     #     file_size = os.path.getsize(file_abspath)
     #     if file_size >= file_size_to_del:
