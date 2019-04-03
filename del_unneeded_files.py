@@ -27,6 +27,5 @@ for folder, subfolders, files in os.walk(dir_to_check):
         print('Size of files in "{}" folder greter than 100MB. \nSize of folder: {}\nFolder: "{}" send to trash.\n'\
         .format(os.path.basename(folder), total_size, os.path.basename(folder)))
         #send2trash.send2trash(folder)
-
-
-# TODO:
+else:
+    print('Directory checked and big files deleted.')
