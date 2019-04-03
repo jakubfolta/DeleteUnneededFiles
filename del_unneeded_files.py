@@ -16,8 +16,10 @@ for folder, subfolders, files in os.walk(dir_to_check):
     total_size = 0
     for file in files:
         if os.path.getsize(file) >= file_size:
-            print()
-            #send2trash.send2trash
+            file_abspath = os.path.join(folder, file)
+            print('File size greater than 100MB. File:\n{}\nSend to trash.'.format(file_abspath))
+            #send2trash.send2trash(file_abspath)
+
 
 
 # TODO:
