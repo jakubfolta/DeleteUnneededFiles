@@ -11,7 +11,7 @@ import send2trash
 dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_folder_to_check'
 file_size_to_del = 104857600
 
-# TODO: Walk through folder tree and search for big files.
+# Walk through folder tree and delete big files.
 for folder, subfolders, files in os.walk(dir_to_check):
     total_size = 0
     for file in files:
