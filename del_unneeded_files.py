@@ -22,8 +22,8 @@ for folder, subfolders, files in os.walk(dir_to_check):
             .format(file, file_size, file, os.path.basename(folder)))
             #send2trash.send2trash(file_abspath)
             continue
-        total_size = total_size + file_size
-    if total_size >= file_size_to_del and not subfolders:
+        total_size = total_size + file_size                     # Delete folder if current folder doesn't contain any subfolders
+    if total_size >= file_size_to_del and not subfolders:       # and size is bigger than 100 MB
         print('Size of files in "{}" folder greter than 100MB. \nSize of folder: {}\nFolder: "{}" send to trash.\n'\
         .format(os.path.basename(folder), total_size, os.path.basename(folder)))
         #send2trash.send2trash(folder)
