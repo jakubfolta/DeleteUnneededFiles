@@ -18,17 +18,20 @@ for folder, subfolders, files in os.walk(dir_to_check):
         file_abspath = os.path.join(folder, file)
         file_size = os.path.getsize(file_abspath)
         folder_basename = os.path.basename(folder)
+
         if file_size >= file_size_to_del:
             print('Size of "{}" file greater than 100 MB.'.format(file))
             print('Size of file: {}'.format(file_size))
             print('File: "{}" in folder "{}" send to trash.\n'.format(file, folder_basename))
             #send2trash.send2trash(file_abspath)
             continue
-        total_size = total_size + file_size                     # Delete folder if current folder doesn't contain any subfolders
+        total_size = total_size + file_size
+                                                                # Delete folder if current folder doesn't contain any subfolders
     if total_size >= file_size_to_del and not subfolders:       # and size is bigger than 100 MB
         print('Size of files in "{}" folder greter than 100MB.'.format(folder_basename))
         print('Size of folder: "{}"'.format(total_size))
         print('Folder: "{}" send to trash\n'.format(folder_basename))
         #send2trash.send2trash(folder)
+
 else:
     print('Directory checked and big files deleted.')
