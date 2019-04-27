@@ -7,7 +7,10 @@ Print these files with their absolute path to the screen.'''
 import os
 import send2trash
 
-# TODO: Set directory to check and other variables.
+# Set directory to check and other variables.
+dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_folder_to_check'
+max_file_size = 104857600
+
 # TODO: Walk through given directory, check size of files and delete if needed.
 # TODO:
 # TODO:
