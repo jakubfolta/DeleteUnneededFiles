@@ -9,12 +9,14 @@ import send2trash
 import logging
 
 logging.basicConfig(level = logging.DEBUG, format = '%(levelname)s, %(message)s')
+logging.disable(logging.WARNING)
 
 # Set directory to check and other variables.
 dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_folder_to_check'
 max_file_size = 104857600
 
 logging.info('Max file size is {}.'.format(max_file_size))
+
 # Walk through given directory, check size of files and delete if needed.
 for folder, subfolders, files in os.walk(dir_to_check):
     total_size = 0
@@ -34,7 +36,7 @@ for folder, subfolders, files in os.walk(dir_to_check):
         #send2trash.send2trash(folder)
     elif total_size >= max_file_size:
         print('Total size of files in {} is greater than {}. Files will be deleted.'.format(os.path.basename(folder), max_file_size))
-        for file in os.listdir(folder):
+        for file in files:
             print('{} deleted.'.format(file))
             #send2trash.send2trash(os.path.join(folder, file))
 else:
