@@ -17,15 +17,21 @@ total_size = 0
 
 logging.info('Max file size is {}.'.format(max_file_size))
 # TODO: Walk through given directory, check size of files and delete if needed.
-for folder, subfolder, file in os.walk(dir_to_check):
-    file_dir = os.path.join(folder, file)
-    file_size = os.path.getsize(file)
-    logging.info('File size: {}'.format(file_size))
+for folder, subfolders, files in os.walk(dir_to_check):
+    for file in files:
+        file_size = os.path.getsize(file)
+        logging.info('File size: {}'.format(file_size))
+        if file_size >= max_file_size:
+            file_dir = os.path.join(folder, file)
+            send2trash.send2trash(file_dir)
+            continue
+        total_size += file_size
+    if total_size >= max_file_size and not subfolders:
+        logging.info('Total size of {} is {}.'format(os.path.basename(folder), total_size))
+        send2trash.send2trash(folder)
+    elif total_size >= max_file_size:
+        
 
-    if file_size >= max_file_size:
-        send2trash.send2trash(file_dir)
-        continue
-    total_size += file_size
     logging.info('Total size: {}'.format(total_size))
 
 # TODO:
