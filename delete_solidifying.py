@@ -16,7 +16,7 @@ max_file_size = 104857600
 total_size = 0
 
 logging.info('Max file size is {}.'.format(max_file_size))
-# TODO: Walk through given directory, check size of files and delete if needed.
+# Walk through given directory, check size of files and delete if needed.
 for folder, subfolders, files in os.walk(dir_to_check):
     for file in files:
         file_size = os.path.getsize(file)
@@ -36,6 +36,7 @@ for folder, subfolders, files in os.walk(dir_to_check):
         for file in os.listdir(folder):
             print('{} deleted.'.format(file))
             #send2trash.send2trash(os.path.join(folder, file))
-
+else:
+    print('Whole directory checked!')
 # TODO:
 # TODO:
