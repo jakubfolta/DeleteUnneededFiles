@@ -4,8 +4,8 @@
 Print these files with their absolute path to the screen.'''
 
 # TODO: Import essential modules.
-# TODO:
-# TODO:
+# TODO: Set directory to check and other variables.
+# TODO: 
 # TODO:
 # TODO:
 # TODO:
