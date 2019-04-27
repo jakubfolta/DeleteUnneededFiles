@@ -6,11 +6,18 @@ Print these files with their absolute path to the screen.'''
 # Import essential modules.
 import os
 import send2trash
+import logging
+
+logging.basicConfig(level = logging.DEBUG, format = '%(levelname)s, %(message)s')
 
 # Set directory to check and other variables.
 dir_to_check = r'C:\Users\ogi-8\Desktop\PythonProjects\DelUnneededFiles\Sample_folder_to_check'
 max_file_size = 104857600
-
+print(type(max_file_size))
+logging.info('Max file size is {}.'.format(max_file_size))
 # TODO: Walk through given directory, check size of files and delete if needed.
+for folder, subfolder, file in os.walk(dir_to_check):
+    print
+
 # TODO:
 # TODO:
