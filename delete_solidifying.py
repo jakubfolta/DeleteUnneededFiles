@@ -32,11 +32,10 @@ for folder, subfolders, files in os.walk(dir_to_check):
         print('Folder {} is greater than {}. Folder deleted.'.format(os.path.basename(folder), max_file_size)
         #send2trash.send2trash(folder)
     elif total_size >= max_file_size:
+        print('Total size of files in {} is greater than {}. Files will be deleted.'.format(os.path.basename(folder), max_file_size))
         for file in os.listdir(folder):
-            print('Total size of files in {} is greater than {}. Files will be deleted.')
+            print('{} deleted.'.format(file))
             #send2trash.send2trash(os.path.join(folder, file))
-
-    logging.info('Total size: {}'.format(total_size))
 
 # TODO:
 # TODO:
