@@ -28,7 +28,7 @@ for folder, subfolders, files in os.walk(dir_to_check):
             continue
         total_size += file_size
     if total_size >= max_file_size and not subfolders:
-        logging.info('Total size of {} is {}.'format(os.path.basename(folder), total_size))
+        logging.info('Total size of {} is {}.'.format(os.path.basename(folder), total_size))
         print('Folder {} is greater than {}. Folder deleted.'.format(os.path.basename(folder), max_file_size)
         #send2trash.send2trash(folder)
     elif total_size >= max_file_size:
