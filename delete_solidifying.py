@@ -17,7 +17,8 @@ max_file_size = 104857600
 logging.info('Max file size is {}.'.format(max_file_size))
 # TODO: Walk through given directory, check size of files and delete if needed.
 for folder, subfolder, file in os.walk(dir_to_check):
-    logging.info(folder)
-
+    logging.info(subfolder)
+    if subfolder:
+        print('yes')
 # TODO:
 # TODO:
