@@ -21,6 +21,7 @@ logging.info('Max file size is {}.'.format(max_file_size))
 def delete_option():
     answer = ''
     while answer not in ['yes', 'no']:
+        print()
         print('Do you want to delete files permanently? If "no", files will be send to trash where you can restore them.')
         answer = input('Type "yes" or "no": ')
     if answer == 'yes':
@@ -40,8 +41,7 @@ for folder, subfolders, files in os.walk(dir_to_check):
         logging.info('File size: {}'.format(file_size))
         if file_size >= max_file_size:
             file_dir = os.path.join(folder, file)
-            print('{} is greater than {}. File deleted.'.format(file, max_file_size))
-            #send2trash.send2trash(file_dir)
+            delete_option()
             continue
         total_size += file_size
         logging.info('Total size is {}'.format(total_size))
