@@ -39,7 +39,20 @@ for folder, subfolders, files in os.walk(dir_to_check):
     elif total_size >= max_file_size:
         print('Total size of files in {} is greater than {}. Files will be deleted.'.format(os.path.basename(folder), max_file_size))
         for file in files:
+            file_dir = os.path.join(folder, file)
             print('{} deleted.'.format(file))
-            #send2trash.send2trash(os.path.join(folder, file))
+            #send2trash.send2trash(file_dir)
 else:
     print('Whole directory checked!')
+
+def delete_option_():
+    answer = ''
+    while answer not in ['yes', 'no']:
+        print('Do you want to delete files permanently? If no, files will be send to trash where you can restore them.')
+        answer = input('Type "yes" or "no": ')
+    if answer == 'yes':
+        print('{} permanently deleted!'.format(file))
+        #os.unlink(file_dir)
+    elif answer == 'no':
+        print('{} sent to trash. You can still restore it.'.format(file))
+        #send2trash.send2trash(file_dir)
