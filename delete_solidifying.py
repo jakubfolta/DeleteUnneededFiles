@@ -17,6 +17,19 @@ max_file_size = 104857600
 
 logging.info('Max file size is {}.'.format(max_file_size))
 
+# Create function for delete options.
+def delete_option():
+    answer = ''
+    while answer not in ['yes', 'no']:
+        print('Do you want to delete files permanently? If "no", files will be send to trash where you can restore them.')
+        answer = input('Type "yes" or "no": ')
+    if answer == 'yes':
+        print('{} permanently deleted!'.format(file))
+        #os.unlink(file_dir)
+    elif answer == 'no':
+        print('{} sent to trash. You can still restore it.'.format(file))
+        #send2trash.send2trash(file_dir)
+
 # Walk through given directory, check size of files and delete if needed.
 for folder, subfolders, files in os.walk(dir_to_check):
     total_size = 0
@@ -44,15 +57,3 @@ for folder, subfolders, files in os.walk(dir_to_check):
             #send2trash.send2trash(file_dir)
 else:
     print('Whole directory checked!')
-
-def delete_option_():
-    answer = ''
-    while answer not in ['yes', 'no']:
-        print('Do you want to delete files permanently? If no, files will be send to trash where you can restore them.')
-        answer = input('Type "yes" or "no": ')
-    if answer == 'yes':
-        print('{} permanently deleted!'.format(file))
-        #os.unlink(file_dir)
-    elif answer == 'no':
-        print('{} sent to trash. You can still restore it.'.format(file))
-        #send2trash.send2trash(file_dir)
