@@ -22,7 +22,7 @@ def delete_option():
     answer = ''
     while answer not in ['yes', 'no']:
         print('Do you want to delete " {} " permanently?'.format(file))
-        print('If "no", file will be send to trash where you can restore it.')
+        print('If "no", file will be send to trash from where you can restore it.')
         answer = input('Type "yes" or "no": ')
     if answer == 'yes':
         print('" {} " permanently deleted!\n'.format(file))
@@ -49,11 +49,11 @@ for folder, subfolders, files in os.walk(dir_to_check):
         logging.info('Total size is {}'.format(total_size))
 
     if total_size >= max_file_size and not subfolders:
-        logging.info('Total size of {} is {}.'.format(folder_basename, total_size))
+        logging.info('Total size of " {} " is {}.'.format(folder_basename, total_size))
         answer = ''
         while answer not in ['yes', 'no']:
             print('Folder " {} " is greater than {}.'.format(folder_basename, max_file_size))
-            print('Do you want to delete folder permanently? If "no", folder will be send to trash where you can restore it.')
+            print('Do you want to delete folder permanently? If "no", folder will be send to trash from where you can restore it.')
             answer = input('Type "yes" or "no": ')
         if answer == 'yes':
             print('" {} " permanently deleted!\n'.format(folder_basename))
@@ -63,7 +63,7 @@ for folder, subfolders, files in os.walk(dir_to_check):
             #send2trash.send2trash(folder)
 
     elif total_size >= max_file_size:
-        print('Total size of files in {} is greater than {}. Files will be deleted.'.format(os.path.basename(folder), max_file_size))
+        print('Total size of files in " {} " is greater than {}. Files will be deleted.'.format(folder_basename, max_file_size))
         for file in files:
             file_dir = os.path.join(folder, file)
             delete_option()
